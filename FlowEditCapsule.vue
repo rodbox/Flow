@@ -38,7 +38,7 @@
     methods: {
       ...mapActions('flowModule', ['saveCapsule'])
       /**
-      * TODO : Creer un champ adapté pour chaque type d'operteur a presaisir
+      * TODO : Créer un champ adapté pour chaque type d'opérateur a presaisir
       **/
     }
   }

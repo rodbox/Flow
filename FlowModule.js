@@ -74,7 +74,6 @@ const mutations = {
     state.autoconnect = false
   },
   SET_CAPSULE: (state, capsule) => {
-    console.log(capsule)
     state.capsule = capsule
   },
   NEW_FLOW: (state) => {
@@ -137,6 +136,7 @@ const mutations = {
       } else {
         // to
         let c = _.filter(state.flow.data.links, {fromOperator: id})
+        // console.log(id, c)
         let r = _.map(c, (vmap, kmap) => {
           let cto = vmap.toOperator
           let conto = vmap.fromConnector
@@ -215,7 +215,10 @@ const actions = {
       data: state.operator.properties.hydrate.tos[kroad]
     }
     /**
-    * TODO : set data capsule config
+    * TODO : Set data capsule config
+    **/
+    /**
+    * TODO : System de crud capsule
     **/
     /* eslint-disable  */
     commit('SET_CAPSULE', dataCapsule)
@@ -241,7 +244,7 @@ const actions = {
   },
   alignOperators ({state, commit, dispatch}) {
     /**
-    * TODO : Améliorer la position des tos pour les aligner
+    * TODO : Améliorer la position des tos pour les aligner depuis le parent et le nombre d'ouput direct
     **/
     let height = state.space * 2
     let width = $('.flowchart-operator').first().outerWidth()
@@ -384,15 +387,12 @@ const actions = {
     **/
   },
   setLinks ({state, commit}, config, operator2) {
-    console.log(operator1)
-    console.log(operator2)
     $('#' + state.id).flowchart('addLink', {
       fromOperator: operator1,
       fromConnector: 'o' + operator1 + '0',
       toOperator: operator2,
       toConnector: 'i' + operator1 + '0'
     })
-    
   },
   createOperator ({state, commit, dispatch}) {
     let opSeleted = $('#' + state.id).flowchart('getOperatorData', state.operator.id)

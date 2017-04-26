@@ -1,1 +1,1 @@
-{ "operators": { }, "links": { }
+Administration et execution de processus basé sur de la description.

@@ -50,7 +50,7 @@
             <tr v-for="capsule in lists.capsules">
               <td>
                 <modal-button id="capsule" class="text-sm mr-1" title="Capsule" :subtitle="capsule.title" ><i class="fa fa-cloud"></i> <strong>{{capsule.title}}</strong>
-      </modal-button> : {{capsule.description}}
+                </modal-button> : {{capsule.description}}
               </td>
             </tr>
           </tbody>
@@ -70,8 +70,8 @@
   </div>
 </div>
 <modal id="capsule" size="modal-lg">
-    <flow-edit-capsule ></flow-edit-capsule>
-  </modal>
+  <flow-edit-capsule ></flow-edit-capsule>
+</modal>
 </div>
 </template>
 
@@ -110,10 +110,22 @@
       outline: 0 !important;
     }
   }
-  path{
-    -webkit-box-shadow: 0 0 0 10px rgba(0,0,0,11);
-    box-shadow: 0 0 0 10px rgba(0,0,0,11);
+
+  .flowchart-links-layer{
+    .flowchart-link{
+      &::before{
+        position: absolute;
+        background-color: red;
+        padding: 1rem;
+        content: "toto"
+      }
+    }
+    path{
+      -webkit-box-shadow: 0 0 0 10px rgba(0,0,0,11);
+      box-shadow: 0 0 0 10px rgba(0,0,0,11);
+    }
   }
+  
   .popover{
     hr{
       margin: .2rem 0rem;
